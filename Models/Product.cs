@@ -9,6 +9,12 @@ namespace Doan_ASP.NET_MVC.Models
     [Table("Product")]
     public partial class Product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product()
+        {
+            Image_detail = new HashSet<Image_detail>();
+        }
+
         [Key]
         public int product_id { get; set; }
 
@@ -32,18 +38,34 @@ namespace Doan_ASP.NET_MVC.Models
 
         public int brand_id { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string product_size { get; set; }
 
-        [Required]
-        [StringLength(100)]
-        public string product_origin { get; set; }
+        public int? origin_id { get; set; }
 
         public bool hot_product { get; set; }
+
+        public int? sale_id { get; set; }
 
         public virtual Brand Brand { get; set; }
 
         public virtual Category Category { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Image_detail> Image_detail { get; set; }
+
+        public virtual Origin Origin { get; set; }
+
+        public virtual sale sale { get; set; }
+        public long productsale
+        {
+            get
+            { if (sale_id != 0 && sale_id!= null)
+                {
+                    return (long)(product_price - product_price * sale.sale_name / 100);
+                }else
+                return 0;
+            }
+        }
     }
 }
