@@ -44,7 +44,6 @@ namespace Doan_ASP.NET_MVC.Controllers
             bill.payment = f["payment"];
             db.Bills.Add(bill);
             db.SaveChanges();
-           
             Session["giohang"] = null;
             return RedirectToAction("Index", "Home");
         }
