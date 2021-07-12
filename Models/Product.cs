@@ -12,6 +12,7 @@ namespace Doan_ASP.NET_MVC.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
+            BillDetails = new HashSet<BillDetail>();
             Image_detail = new HashSet<Image_detail>();
         }
 
@@ -47,6 +48,9 @@ namespace Doan_ASP.NET_MVC.Models
 
         public int? sale_id { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BillDetail> BillDetails { get; set; }
+
         public virtual Brand Brand { get; set; }
 
         public virtual Category Category { get; set; }
@@ -60,11 +64,13 @@ namespace Doan_ASP.NET_MVC.Models
         public long productsale
         {
             get
-            { if (sale_id != 0 && sale_id!= null)
+            {
+                if (sale_id != 0 && sale_id != null)
                 {
                     return (long)(product_price - product_price * sale.sale_name / 100);
-                }else
-                return 0;
+                }
+                else
+                    return 0;
             }
         }
     }

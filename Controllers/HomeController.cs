@@ -15,13 +15,13 @@ namespace Doan_ASP.NET_MVC.Controllers
         public ActionResult Index()
         {
             
-            return View(db.Category.ToList());
+            return View(db.Categories.ToList());
         }
 
         public ActionResult Getsale(int id)
         {
-            var list = (from s in db.sale
-                           join p in db.Product on s.sale_id equals p.sale_id
+            var list = (from s in db.sales
+                           join p in db.Products on s.sale_id equals p.sale_id
                            where p.category_id == id
                            orderby s.sale_name
                            select s).Distinct();
@@ -36,8 +36,8 @@ namespace Doan_ASP.NET_MVC.Controllers
         }
         public ActionResult Getbrand(int id)
         {
-            var brand = (from b in db.Brand
-                          join p in db.Product on b.brand_id equals p.brand_id
+            var brand = (from b in db.Brands
+                          join p in db.Products on b.brand_id equals p.brand_id
                           where p.category_id == id
                           select b).Distinct();
             foreach (Brand b in brand)
@@ -52,8 +52,8 @@ namespace Doan_ASP.NET_MVC.Controllers
         }
         public ActionResult Getorigin(int id)
         {
-            var origin = (from o in db.Origin
-                          join p in db.Product on o.origin_id equals p.origin_id
+            var origin = (from o in db.Origins
+                          join p in db.Products on o.origin_id equals p.origin_id
                           where p.category_id == id
                           select o).Distinct();
 
@@ -70,7 +70,7 @@ namespace Doan_ASP.NET_MVC.Controllers
        
         public ActionResult Hotproduct()
         {
-            IQueryable<Product> list = (from p in db.Product
+            IQueryable<Product> list = (from p in db.Products
                         where p.hot_product == true
                         orderby p.product_id
                         select p).Take(6);
@@ -82,13 +82,13 @@ namespace Doan_ASP.NET_MVC.Controllers
         {
             if (id == null)
             {
-                var product = from p in db.Product
+                var product = from p in db.Products
                               where p.product_id == 1
                               select p;
                 return PartialView("Quickview",product);
             }
             else {
-                var product = from p in db.Product
+                var product = from p in db.Products
                        where p.product_id == id
                        select p;
 
@@ -99,7 +99,7 @@ namespace Doan_ASP.NET_MVC.Controllers
 
         public ActionResult HotproductLaptops()
         {
-            var list = (from p in db.Product
+            var list = (from p in db.Products
                        where p.category_id == 1 orderby p.product_id
                        select p).Take(6);
             
@@ -109,7 +109,7 @@ namespace Doan_ASP.NET_MVC.Controllers
 
         public ActionResult HotproductSmartphone()
         {
-            var list = (from p in db.Product
+            var list = (from p in db.Products
                        where p.category_id == 2 orderby p.product_id
                        select p).Take(6);
 

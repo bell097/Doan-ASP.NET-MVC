@@ -6,27 +6,21 @@ namespace Doan_ASP.NET_MVC.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Category")]
-    public partial class Category
+    public partial class AspNetRole
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Category()
+        public AspNetRole()
         {
-            Products = new HashSet<Product>();
+            AspNetUsers = new HashSet<AspNetUser>();
         }
 
-        [Key]
-        public int category_id { get; set; }
+        public string Id { get; set; }
 
         [Required]
-        [StringLength(255)]
-        public string category_name { get; set; }
+        [StringLength(256)]
+        public string Name { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
-        public int brandid;
-        public int originid;
-        public int saleid;
-
+        public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
     }
 }

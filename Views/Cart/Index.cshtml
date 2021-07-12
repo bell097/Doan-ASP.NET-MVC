@@ -6,7 +6,7 @@
 
 <!--Shopping Cart Area Strat-->
 
-@if (Model.Count == 0)
+@if (Model.Count == 0 || Model == null)
 {
 
 <h3 style="text-align: center; margin: 65px; color: red;"> Giỏ hàng trống!!!</h3>
@@ -75,7 +75,7 @@ else
                                     <ul>
                                         <li>Tổng <span>@Model.Sum(m => m.ThanhTien).ToString("#,##0").Replace(',', '.') VNĐ</span></li>
                                     </ul>
-                                    <a href="#">Tiến hành thanh toán</a>
+                                    <a href="@Url.Action("Checkout","Checkout")">Tiến hành thanh toán</a>
                                 </div>
                             </div>
                         </div>
