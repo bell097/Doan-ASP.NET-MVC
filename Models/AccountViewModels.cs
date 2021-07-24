@@ -55,17 +55,17 @@ namespace Doan_ASP.NET_MVC.Models
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Mật khẩu")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "RememberMe?")]
         public bool RememberMe { get; set; }
     }
 
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "Name")]
+        [Display(Name = "Tên của bạn")]
         public string Name { get; set; }
 
         [Required]
@@ -74,14 +74,14 @@ namespace Doan_ASP.NET_MVC.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Mật khẩu phải có ít nhất 6 ký tự và phải chứa ký tự đặc biêt + số(vd:hoang123!...)", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Mật khẩu")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Xác nhập mật khẩu")]
+        [Compare("Password", ErrorMessage = "Mật khẩu xác nhập và mật khẩu không giống nhau.")]
         public string ConfirmPassword { get; set; }
     }
 

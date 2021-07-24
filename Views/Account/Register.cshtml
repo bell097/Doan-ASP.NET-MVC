@@ -17,7 +17,7 @@
                         <div class="row">
                             <div class="col-md-12 mb-20">
                                 @Html.LabelFor(m => m.Name)
-                                @Html.TextBoxFor(m => m.Name, new { @class = "mb-0" , placeholder = "Name"})
+                                @Html.TextBoxFor(m => m.Name, new { @class = "mb-0" , placeholder = "Tên của bạn"})
                                 @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
                             </div>
                             <div class="col-md-12 mb-20">
@@ -27,12 +27,12 @@
                             </div>
                             <div class="col-md-6 mb-20">
                                 @Html.LabelFor(m => m.Password)
-                                @Html.PasswordFor(m => m.Password, new { @class = "mb-0", placeholder = "PassWord" })
+                                @Html.PasswordFor(m => m.Password, new { @class = "mb-0", placeholder = "Mật khẩu" })
                                 @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                             </div>
                             <div class="col-md-6 mb-20">
                                 @Html.LabelFor(m => m.ConfirmPassword)
-                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "mb-0", placeholder = "Confirm PassWord" })
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "mb-0", placeholder = "Xác nhập mật khẩu" })
                                 @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
                             </div>
                             <div class="col-12">
