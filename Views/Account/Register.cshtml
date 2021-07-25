@@ -1,6 +1,6 @@
 ﻿@model Doan_ASP.NET_MVC.Models.RegisterViewModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Đăng ký";
 }
 
 <div class="page-section mb-60">
@@ -12,7 +12,7 @@
                 {
                     @Html.AntiForgeryToken()
                     <div class="login-form">
-                        <h4 class="login-title">Register</h4>
+                        <h4 class="login-title">Đăng ký</h4>
                       
                         <div class="row">
                             <div class="col-md-12 mb-20">
@@ -36,7 +36,7 @@
                                 @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
                             </div>
                             <div class="col-12">
-                                <button class="register-button mt-0">Register</button>
+                                <button class="register-button mt-0">Đăng ký</button>
                             </div>
                         </div>
                     </div>

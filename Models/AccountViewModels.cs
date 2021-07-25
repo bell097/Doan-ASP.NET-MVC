@@ -58,7 +58,7 @@ namespace Doan_ASP.NET_MVC.Models
         [Display(Name = "Mật khẩu")]
         public string Password { get; set; }
 
-        [Display(Name = "RememberMe?")]
+        [Display(Name = "Lưu tài khoản?")]
         public bool RememberMe { get; set; }
     }
 
